@@ -3,65 +3,46 @@
     require_once('modelo.php');
 
     class Checklist extends modeloCredencialesBD {
-        protected $titulo;
-        protected $descripcion;
-        protected $responsable;
-        protected $fechaCompromiso;
-        protected $estado;
-        protected $tipoTarea;
     
-        public function __construct($titulo, $descripcion, $responsable, $fechaCompromiso, $estado, $tipoTarea) {
+        public function __construct() {
             parent::__construct(); // Llama al constructor de la clase padre
-            $this->titulo = $titulo;
-            $this->descripcion = $descripcion;
-            $this->responsable = $responsable;
-            $this->fechaCompromiso = $fechaCompromiso;
-            $this->estado = $estado;
-            $this->tipoTarea = $tipoTarea;
         }
         
-        public function mostrarTareas() {
+        /* public static function mostrarTareas() {
+            $modelo = new self(); // Crea una instancia de la clase Checklist
             $instruccion = "CALL sp_mostrar_tareas()";
-    
-            $consulta = $this->_db->query($instruccion);
+        
+            $consulta = $modelo->_db->query($instruccion);
             $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-            
+        
             if ($resultado) {
                 return $resultado;
             }
+        } */
+        
+        public function mostrarTareasPorEstado($estado) {
+            $instruccion = "CALL sp_mostrar_tareas_por_estado('$estado')";
+            $consulta = $this->_db->query($instruccion);
+            $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        
+            if ($resultado) {
+                return $resultado;
+            } else {
+                return array(); // Devuelve un array vacío si no se encontraron tareas
+            }
         }
         
-        public function agregarTarea() {
-            $instruccion = "CALL sp_agregar_tarea(
-                '{$this->titulo}',
-                '{$this->descripcion}',
-                '{$this->responsable}',
-                '{$this->fechaCompromiso}',
-                '{$this->estado}',
-                '{$this->tipoTarea}'
-                )";
-                
-                $consulta = $this->_db->query($instruccion);
-                
-                if ($consulta) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+        public function agregarTarea($titulo, $descripcion, $responsable, $fechaCompromiso, $estado, $tipoTarea) {
+            $instruccion = "CALL sp_agregar_tarea('" . $titulo . "', '" . $descripcion . "', '" . $responsable . "', '" . $fechaCompromiso . "', '" . $estado . "', '" . $tipoTarea . "')";
+            $crear = $this->_db->query($instruccion);
 
-        public function eliminarTarea($idTarea) {
-            $instruccion = "CALL sp_eliminar_tarea($idTarea)";
-        
-            $consulta = $this->_db->query($instruccion);
-        
-            if ($consulta) {
+            if ($crear) {
                 return true;
             } else {
                 return false;
             }
-        }
-            
+        }    
+
         public function editarTarea($idTarea) {
             $instruccion = "CALL sp_editar_tarea(
                 $idTarea,
@@ -82,6 +63,18 @@
                 return false;
             }
         }
+
+        public function eliminarTarea($idTarea) {
+            $instruccion = "CALL sp_eliminar_tarea($idTarea)";
+            $consulta = $this->_db->query($instruccion);
+        
+            if ($consulta) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+            
     
     }
 ?>

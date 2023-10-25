@@ -1,14 +1,15 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    src: url('fonts/static/Montserrat-Bold.ttf') format('truetype');
 }
 
-
+/* Cuerpo */
 body {
     background-color: rgb(150, 133, 133);
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Encabezado */
 header{
     display: flex;
     justify-content: center;
@@ -16,12 +17,14 @@ header{
     border-radius: 0.3rem;
     padding: 1rem;
     margin: 1rem 2rem;
-    font-weight: bold;
 }
+
+/* Bloque de adicion de tareas */
 
 .addtask{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     padding: 2rem;
 }
@@ -37,6 +40,10 @@ header{
     justify-content: center;
 }
 
+#engagementdate{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .select{
     display: flex;
     gap: 1rem;
@@ -44,8 +51,17 @@ header{
 
 select{
     height: 1rem;
+    width: 100%;
+    padding: 0.8rem;
 }
 
+#submit{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* Paneles de las tareas */
 .board {
     display: flex;
     justify-content: space-between;
@@ -77,8 +93,6 @@ select{
     border-radius: 0.3rem;
 }
 
-
-
 .column-title {
     display: flex;
     justify-content: center;
@@ -92,14 +106,4 @@ select{
     border: 1px solid #ddd;
     margin: 5px;
     border-radius: 5px;
-}
-
-
-.task-title {
-    font-weight: bold;
-}
-
-select {
-    width: 100%;
-    padding: 0.8rem;
 }

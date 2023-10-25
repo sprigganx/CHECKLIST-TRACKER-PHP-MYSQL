@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style/checklist.css">
+        <link rel="stylesheet" type="text/css" href="checklist.css">
         <title>Checklist</title>
     </head>
     
@@ -14,7 +13,7 @@
         </header>
         
         <!-- Formulario para agregar una nueva tarea -->
-        <form class="addtask" action="agregar_tarea.php" method="post">
+        <form class="addtask" action="php/agregar_tarea.php" method="post">
             <div class="groupofthree">
                 <div>
                     <div><label for="title">Title:</label></div>
@@ -46,33 +45,33 @@
                         <div>
                             <select name="status" id="status">
                                 <option value=""></option>
-                                <option value="To be done">To be done</option>
-                                <option value="In progress">In progress</option>
-                                <option value="Completed">Completed</option>
+                                <option value="por hacer">To be done</option>
+                                <option value="en progreso">In progress</option>
+                                <option value="terminada">Completed</option>
                             </select>
                         </div>
                     </div>
                     <div>
                         <div><label for="TaskType">Task Type:</label></div>
                         <div>
-                            <select name="status" id="status">
+                            <select name="TaskType" id="TaskType">
                                 <option value=""></option>
-                                <option value="Homework">Homework</option>
-                                <option value="Workshop">Workshop</option>
-                                <option value="Laboratory">Laboratory</option>
-                                <option value="Assignment">Assignment</option>
-                                <option value="Investigation">Investigation</option>
-                                <option value="Talk">Talk</option>
-                                <option value="Project">Project</option>
-                                <option value="Partial">Partial</option>
-                                <option value="Exam">Exam</option>
+                                <option value="tarea">Homework</option>
+                                <option value="taller">Workshop</option>
+                                <option value="laboratorio">Laboratory</option>
+                                <option value="asignacion">Assignment</option>
+                                <option value="investigacion">Investigation</option>
+                                <option value="charla">Talk</option>
+                                <option value="proyecto">Project</option>
+                                <option value="parcial">Partial</option>
+                                <option value="examen">Exam</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="groupofthree"><input type="submit" value="Add Task"></div>   
+            <div class="groupofthree"><input id="submit" type="submit" value="Add Task"></div>   
         </form>
 
         <div class="board">
@@ -80,6 +79,9 @@
                 <h2 class="column-title">To be done</h2>
                 <div class="task">
                     <!-- Aquí se mostrarán las tareas por hacer -->
+                    <hr>
+                    <iframe src="php/mt_por_hacer.php" width="100%" height="400" frameborder="0"></iframe>
+
                 </div>
             </div>
 
@@ -87,12 +89,16 @@
                 <h2 class="column-title">In progress</h2>
                 <div class="task">
                     <!-- Aquí se mostrarán las tareas en progreso -->
+                    <hr>
+                    <iframe src="php/mt_en_progreso.php" width="100%" height="400" frameborder="0"></iframe>
                 </div>
             </div>
             <div id="column3">
                 <h2 class="column-title">Completed</h2>
                 <div class="task">
                     <!-- Aquí se mostrarán las tareas completadas -->
+                    <hr>
+                    <iframe src="php/mt_terminadas.php" width="100%" height="400" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
