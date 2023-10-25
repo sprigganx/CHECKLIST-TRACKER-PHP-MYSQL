@@ -14,6 +14,6 @@
         // Agrega la tarea
         $nuevaTarea->agregarTarea($titulo, $descripcion, $responsable, $fechaCompromiso, $estado, $tipoTarea);
         // Redirige al usuario de vuelta a la página principal
-        header('Location: ../checklist_index.php');
+        header('Location: ../checklist_index.html');
     }
 ?>
