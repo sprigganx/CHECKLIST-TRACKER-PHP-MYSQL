@@ -1,32 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style/checklist.css">
-    <title>Checklist</title>
-</head>
-
-<body>
-    <header><h1>CHECKLIST BOARD VIEW</h1></header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style/checklist.css">
+        <title>Checklist</title>
+    </head>
     
-    <div class="board">
+    <body>
+        <header>
+            <h1>CHECKLIST</h1>
+            <h6>Adding new tasks</h6>
+        </header>
         
-        <div id="column">
-            <h2 class="column-title">To be done</h2>
-            <!-- Agrega más tareas aquí -->
-        </div>
+        <!-- Formulario para agregar una nueva tarea -->
+        <form class="addtask" action="agregar_tarea.php" method="post">
+            <div class="groupofthree">
+                <div>
+                    <div><label for="title">Title:</label></div>
+                    <div><input type="text" name="title" id="title" required></div>
+                </div>
 
-        <div id="column2">
-            <h2 class="column-title">In progress</h2>
-            <!-- Tareas en progreso van aquí -->
-        </div>
-        <div id="column3">
-            <h2 class="column-title">Completed</h2>
-            <!-- Tareas terminadas van aquí -->
-        </div>
+                <div>
+                    <div><label for="description">Description:</label></div>
+                    <div><input name="description" id="description" required></div>
+                </div>
 
-    </div>
+                <div>
+                    <div><label for="manager">Manager:</label></div>
+                    <div><input type="text" name="manager" id="manager"></div>
+                </div>
+            </div>
+            
+            <div class="groupofthree">
+                <div>
+                    <div><label for="engagementdate">Engagement date:</label></div>
+                    <div id="date"><input type="date" name="engagementdate" id="engagementdate"></div>
+                </div>
+            </div>
+              
+            <div class="groupofthree">
+                <div>
+                    <div><label for="status">Status:</label></div>
+                    <div>
+                        <select name="status" id="status">
+                            <option value=""></option>
+                            <option value="To be done">To be done</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div><label for="TaskType">Task Type:</label></div>
+                    <div>
+                        <select name="status" id="status">
+                            <option value=""></option>
+                            <option value="Homework">Homework</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Laboratory">Laboratory</option>
+                            <option value="Assignment">Assignment</option>
+                            <option value="Investigation">Investigation</option>
+                            <option value="Talk">Talk</option>
+                            <option value="Project">Project</option>
+                            <option value="Partial">Partial</option>
+                            <option value="Exam">Exam</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="groupofthree"><input type="submit" value="Add Task"></div>   
+        </form>
+
+        <div class="board">
+            <div id="column">
+                <h2 class="column-title">To be done</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas por hacer -->
+                </div>
+            </div>
+
+            <div id="column2">
+                <h2 class="column-title">In progress</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas en progreso -->
+                </div>
+            </div>
+            <div id="column3">
+                <h2 class="column-title">Completed</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas completadas -->
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>
