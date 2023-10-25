@@ -37,6 +37,11 @@ header{
     justify-content: center;
 }
 
+.select{
+    display: flex;
+    gap: 1rem;
+}
+
 select{
     height: 1rem;
 }
