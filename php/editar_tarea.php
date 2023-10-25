@@ -21,13 +21,15 @@ if (isset($_GET['id'])) {
 
         if ($resultado) {
             // La tarea se editó exitosamente
+            echo '<div style="color: green; font-weight: bold;">Editado</div>';
             echo '<script>
-            // Recarga la página principal
-            top.location.reload();
+            setTimeout(function() {
+                var editadoMessage = document.querySelector(".editado-message");
+                if (editadoMessage) {
+                    editadoMessage.style.display = "none";
+                }
+            }, 5000); // El mensaje "Editado" desaparecerá después de 5 segundos (5000 ms)
             </script>';
-        } else {
-            // Ocurrió un error al editar la tarea
-            echo 'Error al editar la tarea.';
         }
     }
 
