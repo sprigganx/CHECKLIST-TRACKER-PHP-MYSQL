@@ -1,0 +1,116 @@
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="checklist.css">
+        <title>Checklist</title>
+    </head>
+    
+    <body>
+        <header>
+            <h1>CHECKLIST</h1>
+            <h6>Adding new tasks</h6>
+        </header>
+        
+        <!-- Formulario para agregar una nueva tarea -->
+        <form class="addtask">
+            <div class="groupofthree">
+                <div>
+                    <div><label for="title">Title:</label></div>
+                    <div><input type="text" name="title" id="title" required></div>
+                </div>
+
+                <div>
+                    <div><label for="description">Description:</label></div>
+                    <div><input name="description" id="description" required></div>
+                </div>
+
+                <div>
+                    <div><label for="manager">Manager:</label></div>
+                    <div><input type="text" name="manager" id="manager"></div>
+                </div>
+            </div>
+            
+            <div class="groupofthree">
+                <div>
+                    <div><label for="engagementdate">Engagement date:</label></div>
+                    <div id="date"><input type="date" name="engagementdate" id="engagementdate"></div>
+                </div>
+            </div>
+              
+            <div class="groupofthree">
+                <div class="select">
+                    <div>
+                        <div><label for="status">Status:</label></div>
+                        <div>
+                            <select name="status" id="status">
+                                <option value=""></option>
+                                <option value="por hacer">To be done</option>
+                                <option value="en progreso">In progress</option>
+                                <option value="terminada">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div><label for="TaskType">Task Type:</label></div>
+                        <div>
+                            <select name="TaskType" id="TaskType">
+                                <option value=""></option>
+                                <option value="tarea">Homework</option>
+                                <option value="taller">Workshop</option>
+                                <option value="laboratorio">Laboratory</option>
+                                <option value="asignacion">Assignment</option>
+                                <option value="investigacion">Investigation</option>
+                                <option value="charla">Talk</option>
+                                <option value="proyecto">Project</option>
+                                <option value="parcial">Partial</option>
+                                <option value="examen">Exam</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="groupofthree"><input id="submit" type="submit" value="Add Task" onclick="addTask()"></div> 
+        </form>
+
+        <div class="board">
+            <div id="column">
+                <h2 class="column-title">To be done</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas por hacer -->
+                    <hr>
+                    <iframe id="todoIframe" width="100%" height="400" frameborder="0"></iframe>
+                </div>
+            </div>
+        
+            <div id="column2">
+                <h2 class="column-title">In progress</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas en progreso -->
+                    <hr>
+                    <iframe id="progressIframe" width="100%" height="400" frameborder="0"></iframe>
+                </div>
+            </div>
+        
+            <div id="column3">
+                <h2 class="column-title">Completed</h2>
+                <div class="task">
+                    <!-- Aquí se mostrarán las tareas completadas -->
+                    <hr>
+                    <iframe id="completedIframe" width="100%" height="400" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script src="api/js/mostrarTareasPorEstado.js"></script>
+        <script src="api/js/acciones/agregarTarea.js"></script>
+        <script src="api/js/acciones/generateTask.js"></script>
+        <script src="api/js/acciones/elminarTarea.js"></script>
+        <script src="api/js/acciones/editarTarea.js"></script>
+</body>
+
+</html>
