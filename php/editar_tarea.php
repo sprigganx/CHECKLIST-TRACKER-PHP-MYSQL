@@ -28,7 +28,8 @@ if (isset($_GET['id'])) {
                 if (editadoMessage) {
                     editadoMessage.style.display = "none";
                 }
-            }, 5000); // El mensaje "Editado" desaparecerá después de 5 segundos (5000 ms)
+                window.parent.location.reload();
+            }, 1000);
             </script>';
         }
     }
