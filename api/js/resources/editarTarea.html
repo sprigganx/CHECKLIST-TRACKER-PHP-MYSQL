@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script src="editarTarea.js"></script>
+    <script src="obtenerTareaPorId.js"></script>
+</head>
+<body>
+    <h1>Editar Tarea</h1>
+    <form id="editTaskForm">
+        <!-- Campos del formulario con datos pre-cargados -->
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo"><br>
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion"><br>
+
+        <label for="responsable">Responsable:</label>
+        <input type="text" id="responsable" name="responsable"><br>
+
+        <label for="fecha_compromiso">Fecha de Compromiso:</label>
+        <input type="date" id="fecha_compromiso" name="fecha_compromiso"><br>
+
+        <label for="estado">Status:</label>
+        <select id="estado" name="estado">
+            <option value="por hacer">To be done</option>
+            <option value="en progreso">In progress</option>
+            <option value="terminada">Completed</option>
+        </select><br>
+
+        <label for="tipo_tarea">Task Type:</label>
+        <select id="tipo_tarea" name="tipo_tarea">
+            <option value="tarea">Homework</option>
+            <option value="taller">Workshop</option>
+            <option value="laboratorio">Laboratory</option>
+            <option value="asignacion">Assignment</option>
+            <option value="investigacion">Investigation</option>
+            <option value="charla">Talk</option>
+            <option value="proyecto">Project</option>
+            <option value="parcial">Partial</option>
+            <option value="examen">Exam</option>
+        </select><br>
+
+        <input type="submit" value="Guardar Cambios"><br><br>
+    </form>
+    <script src="editarTareaPorId.js"></script>
+</body>
+</html>

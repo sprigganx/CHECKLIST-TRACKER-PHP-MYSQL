@@ -15,8 +15,6 @@ function deleteTask(taskId) {
     fetch(apiUrl, requestOptions)
         .then(response => response.json())
         .then(data => {
-            // Manejar la respuesta de la API
-            console.log(data.message); // Mensaje de la API
             window.location.reload();
         })
         .catch(error => {

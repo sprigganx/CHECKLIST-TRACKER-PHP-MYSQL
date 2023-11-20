@@ -12,7 +12,7 @@ function generateTaskHtml(tasks) {
         html += '<input type="hidden" name="id_tarea" value="' + task.id + '">';
         html += '<input type="submit" value="Delete" id="deleteBtn_' + task.id + '">';
         html += '</form>';
-        html += '<a href="api/js/acciones/editarTarea.html?id=' + task.id + '">Edit</a>';
+        html += '<a href="api/js/resources/editarTarea.html?id=' + task.id + '">Edit</a>';
         html += '</div>';
         html += '<hr>';
     });

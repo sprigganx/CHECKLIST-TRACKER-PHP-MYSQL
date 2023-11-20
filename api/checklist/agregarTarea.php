@@ -35,14 +35,14 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Asegurarse de que los datos no estén vacíos
-    /* if (
+    if (
         !empty($data->titulo) &&
-        !empty($data->descripcion) &&
+        !empty($data->descripcion) /* &&
         !empty($data->responsable) &&
         !empty($data->fechaCompromiso) &&
         !empty($data->estado) &&
-        !empty($data->tipoTarea)
-    ) { */
+        !empty($data->tipoTarea) */
+    ) {
         // Asignar valores de propiedad a la tarea
         $checklist->titulo = $data->titulo;
         $checklist->descripcion = $data->descripcion;
@@ -64,12 +64,12 @@
             // Informar al usuario
             echo json_encode(array("message" => "No se puede crear la tarea."));
         }
-    /* }
+    }
     // Informar al usuario que los datos están incompletos
     else {
         // Asignar código de respuesta - 400 solicitud incorrecta
         http_response_code(400);
         // Informar al usuario
         echo json_encode(array("message" => "No se puede crear la tarea. Los datos están incompletos."));
-    } */
+    }
 ?>

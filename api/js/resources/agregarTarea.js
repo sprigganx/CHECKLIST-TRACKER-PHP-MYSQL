@@ -22,10 +22,13 @@ function addTask() {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data); // Puedes manejar la respuesta de la API aquí
-        window.location.reload();
+    .then(response => {
+        if (response.ok) {
+            // La tarea se agregó correctamente, recarga la página
+            window.location.reload();
+        } else {
+            console.error('Error al agregar la tarea:', response.statusText);
+        }
     })
     .catch(error => console.error('Error:', error));
 }
